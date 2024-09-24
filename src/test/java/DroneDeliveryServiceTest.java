@@ -55,8 +55,13 @@ public class DroneDeliveryServiceTest {
         @Test
         @DisplayName("Should throw IllegalArgumentException if any of the values is zero")
         public void deliverFailureZero(){
-            char result = sut.deliver(10, 20, 30, 1, 0);
             assertThatThrownBy(() -> sut.deliver(10, 20, 30, 1, 0)).isInstanceOf(IllegalArgumentException.class);
+        }
+        
+        @Test
+        @DisplayName("Should throw IllegalArgumentException if any of the values is below zero")
+        public void deliverFailureNegative(){
+            assertThatThrownBy(() -> sut.deliver(-1, 10, 20, 30, 0)).isInstanceOf(IllegalArgumentException.class);
         }
     }
 }
