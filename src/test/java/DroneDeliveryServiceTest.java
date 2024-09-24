@@ -25,5 +25,12 @@ public class DroneDeliveryServiceTest {
             char result = sut.deliver(10, 5, 3, 6, 4);
             assertThat(result).isEqualTo('S');
         }
+        
+        @Test
+        @DisplayName("Should return 'S' if at least two box sides are equal to the window sizes")
+        public void deliverSuccessEqual(){
+            char result = sut.deliver(20, 10, 5, 10, 5);
+            assertThat(result).isEqualTo('S');
+        }
     }
 }
